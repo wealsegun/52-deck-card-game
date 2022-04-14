@@ -1,9 +1,3 @@
-/**
- * This is an example of a working Black Jack game.
- * This was my entry for the Blackjack Final Challenge at
- * http://www.codecademy.com/courses/blackjack-part-3
- */
-
 // Card Constructor
 var game_deck;
 var Card = function (suit, number) {
@@ -173,11 +167,13 @@ function playGame() {
     var dprompt = (dealer.busted()) ? "Dealer busted! Score" : "Dealer's score";
 
     winner += "\n"+ pprompt +": "+ player.score();
-    winner += " ("+ player.printHand() +")\n";
+    winner += " ("+ player.printHand().toUpperCase() +")\n";
     winner += dprompt +": "+ dealer.score();
-    winner += " ("+ dealer.printHand() +")\n";
+    winner += " ("+ dealer.printHand().toUpperCase() +")\n";
     winner += "\n"+ declareWinner(player, dealer);
 
+    console.log(`Player cards are: (${player.printHand().toUpperCase()})`);
+    console.log(`dealer cards are: (${dealer.printHand().toUpperCase()})`);
     console.log(winner);
 }
 
